@@ -1,0 +1,11 @@
+.example {
+  color: #333;
+  text-align: center;
+  .logo {
+    height: 250px;
+    background-image: url(./assets/react-logo.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
