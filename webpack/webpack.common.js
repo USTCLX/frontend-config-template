@@ -12,6 +12,7 @@ module.exports = {
 
     output: {
         filename: '[name].[chunkhash].js',
+        chunkFilename: 'async/[name].[chunkhash].js',
     },
 
     resolve: {
@@ -43,6 +44,18 @@ module.exports = {
                 ],
             },
         ],
+    },
+
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+                    filename: 'vendors/vendors.[chunkhash].js',
+                    chunks: 'all',
+                },
+            },
+        },
     },
 
     plugins: [new CleanWebpackPlugin(), ...HtmlWebpackPlugins],

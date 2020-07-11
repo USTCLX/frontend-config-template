@@ -34,5 +34,6 @@ module.exports = merge(commonConfig, {
         port: 8089,
         open: true,
         openPage: 'example',
+        writeToDisk: true,
     },
 });

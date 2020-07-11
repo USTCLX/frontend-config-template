@@ -1,7 +1,7 @@
 .example {
   color: #333;
   text-align: center;
-  .logo {
+  &_logo {
     height: 250px;
     background-image: url(./assets/react-logo.png);
     background-size: contain;

@@ -3,7 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const commonConfig = require('./webpack.common');
 
 module.exports = merge(commonConfig, {
-    mode: 'production',
+    // mode: 'production',
+    mode: 'development',
 
     module: {
         rules: [
@@ -38,8 +39,8 @@ module.exports = merge(commonConfig, {
 
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css',
+            filename: '[name].[chunkhash].css',
+            chunkFilename: 'async/[name].[chunkhash].css',
         }),
     ],
 });
