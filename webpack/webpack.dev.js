@@ -1,8 +1,16 @@
 const { merge } = require('webpack-merge');
+const { HotModuleReplacementPlugin } = require('webpack');
 const commonConfig = require('./webpack.common');
 
 module.exports = merge(commonConfig, {
     mode: 'development',
+
+    devtool: 'eval-cheap-module-source-map',
+
+    output: {
+        filename: '[name].[id].js',
+        chunkFilename: 'async/[name].[id].js',
+    },
 
     module: {
         rules: [
@@ -30,10 +38,13 @@ module.exports = merge(commonConfig, {
         ],
     },
 
+    plugins: [new HotModuleReplacementPlugin()],
+
     devServer: {
         port: 8089,
         open: true,
         openPage: 'example',
         writeToDisk: true,
+        hot: true,
     },
 });

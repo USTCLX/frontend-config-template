@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack/webpack.dev.js",
-    "build": "webpack --config ./webpack/webpack.prod.js"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.prod.js",
+    "analy": "webpack --config ./webpack/webpack.analy.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
@@ -34,10 +36,12 @@
     "prettier": "^2.0.5",
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^3.0.6",
     "typescript": "^3.9.6",
     "typescript-plugin-css-modules": "^2.4.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.0.8"

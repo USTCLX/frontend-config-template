@@ -1,6 +1,12 @@
 const { resolve, join } = require('path');
 const { readdirSync, statSync, existsSync } = require('fs');
 
+const DEVELOPMENT = 'development';
+
+const isDev = () => {
+    return process.env.NODE_ENV === DEVELOPMENT;
+};
+
 const getEntries = () => {
     const srcPath = resolve(__dirname, '../src');
     const files = readdirSync(srcPath, { encoding: 'utf-8' });
@@ -26,4 +32,4 @@ const getHtmlWebpackPluginConfigs = () => {
     });
 };
 
-module.exports = { getEntries, getHtmlWebpackPluginConfigs };
+module.exports = { isDev, getEntries, getHtmlWebpackPluginConfigs };

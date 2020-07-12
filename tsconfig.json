@@ -8,11 +8,7 @@
     "allowJs": false,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules"
-      }
-    ]
+    "plugins": []
   },
   "include": ["src"]
 }

@@ -1,10 +1,15 @@
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const commonConfig = require('./webpack.common');
 
 module.exports = merge(commonConfig, {
-    // mode: 'production',
-    mode: 'development',
+    mode: 'production',
+
+    output: {
+        filename: '[name].[chunkhash].js',
+        chunkFilename: 'async/[name].[chunkhash].js',
+    },
 
     module: {
         rules: [
@@ -34,6 +39,21 @@ module.exports = merge(commonConfig, {
                     },
                 ],
             },
+        ],
+    },
+
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                sourceMap: true,
+                extractComments: false,
+                terserOptions: {
+                    compress: {
+                        drop_console: true,
+                    },
+                },
+            }),
         ],
     },
 

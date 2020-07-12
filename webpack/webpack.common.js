@@ -10,11 +10,6 @@ const HtmlWebpackPlugins = getHtmlWebpackPluginConfigs().map(
 module.exports = {
     entry: entries,
 
-    output: {
-        filename: '[name].[chunkhash].js',
-        chunkFilename: 'async/[name].[chunkhash].js',
-    },
-
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
