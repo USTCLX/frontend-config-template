@@ -1,5 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const { getEntries, getHtmlWebpackPluginConfigs } = require('./utils');
 
 const entries = getEntries();
@@ -53,5 +54,5 @@ module.exports = {
         },
     },
 
-    plugins: [new CleanWebpackPlugin(), ...HtmlWebpackPlugins],
+    plugins: [new CleanWebpackPlugin(), new ProgressBarPlugin(), ...HtmlWebpackPlugins],
 };
