@@ -6,7 +6,7 @@
     "jest": true
   },
   "extends": ["prettier", "prettier/@typescript-eslint"],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
